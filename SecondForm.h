@@ -22,6 +22,17 @@ namespace EventManagementSystem {
             InitializeEventData();
             eventHistory = gcnew System::Collections::Generic::Stack<String^>();
             eventQueue = gcnew System::Collections::Generic::Queue<String^>();
+
+            Button^ doneButton = gcnew Button();
+            doneButton->Text = "DONE";
+            doneButton->Location = Point(640, 350);
+            doneButton->Size = System::Drawing::Size(100, 30);
+            doneButton->BackColor = confirmButton->BackColor;
+            doneButton->ForeColor = confirmButton->ForeColor;
+            doneButton->Font = (gcnew System::Drawing::Font(L"Tw Cen MT Condensed", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            doneButton->Click += gcnew System::EventHandler(this, &SecondForm::DoneButton_Click);
+            this->Controls->Add(doneButton);
         }
 
         // Getter dan setter untuk techConferenceImagePath
@@ -310,7 +321,6 @@ namespace EventManagementSystem {
                this->panel1->PerformLayout();
                this->ResumeLayout(false);
                this->PerformLayout();
-
            }
 #pragma endregion
     private:
@@ -350,6 +360,8 @@ namespace EventManagementSystem {
 
     private: System::Void confirmButton_Click(System::Object^ sender, System::EventArgs^ e) {
         String^ selectedEvents = "";
+        bool eventAlreadyRegistered = false;
+
 
         for (int i = 0; i < eventCheckBoxes->Length; i++)
         {
@@ -358,10 +370,20 @@ namespace EventManagementSystem {
                 eventDetails += "Date: " + eventData[i][1] + "\n"; // Event Date
                 eventDetails += "Description: " + eventData[i][2] + "\n\n"; // Event Description
 
+                for each (String ^ registeredEvent in eventHistory) {
+                    if (registeredEvent->Contains(eventData[i][0])) {
+                        eventAlreadyRegistered = true;
+                        break;
+                    }
+                }
+
+                if (eventAlreadyRegistered) {
+                    MessageBox::Show("Event " + eventData[i][0] + " is already registered.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                    return; 
+                }
+
                 selectedEvents += eventDetails;
-
                 eventHistory->Push(eventDetails);
-
                 eventQueue->Enqueue(eventDetails);
             }
         }
@@ -382,25 +404,26 @@ namespace EventManagementSystem {
                 }
 
                 MessageBox::Show(confirmationMessage, "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-                historyButton->Visible = true;
-                clearHistoryButton->Visible = true;
-                Button^ exitButton = gcnew Button();
-                exitButton->Text = "DONE";
-                exitButton->Location = Point(640, 350);
-                exitButton->Size = System::Drawing::Size(100, 30);
-                exitButton->BackColor = confirmButton->BackColor; 
-                exitButton->ForeColor = confirmButton->ForeColor; 
-                exitButton->Font = (gcnew System::Drawing::Font(L"Tw Cen MT Condensed", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                    static_cast<System::Byte>(0)));
-                exitButton->Click += gcnew System::EventHandler(this, &SecondForm::ExitButton_Click);
-                this->Controls->Add(exitButton);
             }
         }
     }
 
-    private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->Close();
+    private: System::Void DoneButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        bool anyEventSelected = false;
+
+        for (int i = 0; i < eventCheckBoxes->Length; i++) {
+            if (eventCheckBoxes[i]->Checked) {
+                anyEventSelected = true;
+                break;
+            }
+        }
+
+        if (!anyEventSelected) { 
+            MessageBox::Show("Please select at least one event.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+        }
+        else {
+            this->Close();
+        }
     }
 
     };
