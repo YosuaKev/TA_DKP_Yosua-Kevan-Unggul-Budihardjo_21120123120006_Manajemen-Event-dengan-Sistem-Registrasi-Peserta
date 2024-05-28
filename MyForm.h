@@ -20,13 +20,10 @@ namespace EventManagementSystem {
         {
             InitializeComponent();
             gender = Gender::Male;
-  
+
             SetPlaceholderText(txtName, L"Nama Lengkap");
             SetPlaceholderText(txtEmail, L"Email");
-            SetPlaceholderText(txtPassword, L"Password");
-            SetPlaceholderText(txtUsername, L"Username");
             SetPlaceholderText(txtPhone, L"Nomor Telepon");
-            SetPlaceholderText(txtConfirmPassword, L"Ulangi Password");
         }
 
     protected:
@@ -37,7 +34,7 @@ namespace EventManagementSystem {
                 delete components;
             }
         }
-    
+
     private: String^ phoneNumberText;
     private: System::Windows::Forms::Button^ openSecondFormButton;
     private: System::ComponentModel::Container^ components;
@@ -46,17 +43,17 @@ namespace EventManagementSystem {
     private: System::Windows::Forms::Label^ labelTitle;
     private: System::Windows::Forms::Label^ labelName;
     private: System::Windows::Forms::Label^ labelEmail;
-    private: System::Windows::Forms::Label^ labelPassword;
-    private: System::Windows::Forms::Label^ labelUsername;
+
+
     private: System::Windows::Forms::Label^ labelPhone;
-    private: System::Windows::Forms::Label^ labelConfirmPassword;
+
     private: System::Windows::Forms::Label^ labelGender;
     private: System::Windows::Forms::TextBox^ txtName;
     private: System::Windows::Forms::TextBox^ txtEmail;
-    private: System::Windows::Forms::TextBox^ txtPassword;
-    private: System::Windows::Forms::TextBox^ txtUsername;
+
+
     private: System::Windows::Forms::TextBox^ txtPhone;
-    private: System::Windows::Forms::TextBox^ txtConfirmPassword;
+
     private: System::Windows::Forms::RadioButton^ radioMale;
     private: System::Windows::Forms::RadioButton^ radioFemale;
     private: System::Windows::Forms::RadioButton^ radioOther;
@@ -70,17 +67,11 @@ namespace EventManagementSystem {
                this->labelTitle = (gcnew System::Windows::Forms::Label());
                this->labelName = (gcnew System::Windows::Forms::Label());
                this->labelEmail = (gcnew System::Windows::Forms::Label());
-               this->labelPassword = (gcnew System::Windows::Forms::Label());
-               this->labelUsername = (gcnew System::Windows::Forms::Label());
                this->labelPhone = (gcnew System::Windows::Forms::Label());
-               this->labelConfirmPassword = (gcnew System::Windows::Forms::Label());
                this->labelGender = (gcnew System::Windows::Forms::Label());
                this->txtName = (gcnew System::Windows::Forms::TextBox());
                this->txtEmail = (gcnew System::Windows::Forms::TextBox());
-               this->txtPassword = (gcnew System::Windows::Forms::TextBox());
-               this->txtUsername = (gcnew System::Windows::Forms::TextBox());
                this->txtPhone = (gcnew System::Windows::Forms::TextBox());
-               this->txtConfirmPassword = (gcnew System::Windows::Forms::TextBox());
                this->radioMale = (gcnew System::Windows::Forms::RadioButton());
                this->radioFemale = (gcnew System::Windows::Forms::RadioButton());
                this->radioOther = (gcnew System::Windows::Forms::RadioButton());
@@ -128,32 +119,6 @@ namespace EventManagementSystem {
                this->labelEmail->TabIndex = 2;
                this->labelEmail->Text = L"Email";
                // 
-               // labelPassword
-               // 
-               this->labelPassword->AutoSize = true;
-               this->labelPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                   static_cast<System::Byte>(0)));
-               this->labelPassword->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(192)));
-               this->labelPassword->Location = System::Drawing::Point(30, 120);
-               this->labelPassword->Name = L"labelPassword";
-               this->labelPassword->Size = System::Drawing::Size(61, 13);
-               this->labelPassword->TabIndex = 3;
-               this->labelPassword->Text = L"Password";
-               // 
-               // labelUsername
-               // 
-               this->labelUsername->AutoSize = true;
-               this->labelUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                   static_cast<System::Byte>(0)));
-               this->labelUsername->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(192)));
-               this->labelUsername->Location = System::Drawing::Point(340, 60);
-               this->labelUsername->Name = L"labelUsername";
-               this->labelUsername->Size = System::Drawing::Size(63, 13);
-               this->labelUsername->TabIndex = 4;
-               this->labelUsername->Text = L"Username";
-               // 
                // labelPhone
                // 
                this->labelPhone->AutoSize = true;
@@ -161,24 +126,12 @@ namespace EventManagementSystem {
                    static_cast<System::Byte>(0)));
                this->labelPhone->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
                    static_cast<System::Int32>(static_cast<System::Byte>(192)));
-               this->labelPhone->Location = System::Drawing::Point(340, 90);
+               this->labelPhone->Location = System::Drawing::Point(31, 119);
                this->labelPhone->Name = L"labelPhone";
                this->labelPhone->Size = System::Drawing::Size(93, 13);
                this->labelPhone->TabIndex = 5;
                this->labelPhone->Text = L"Nomor Telepon";
-               // 
-               // labelConfirmPassword
-               // 
-               this->labelConfirmPassword->AutoSize = true;
-               this->labelConfirmPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold,
-                   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-               this->labelConfirmPassword->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
-               this->labelConfirmPassword->Location = System::Drawing::Point(340, 120);
-               this->labelConfirmPassword->Name = L"labelConfirmPassword";
-               this->labelConfirmPassword->Size = System::Drawing::Size(101, 13);
-               this->labelConfirmPassword->TabIndex = 6;
-               this->labelConfirmPassword->Text = L"Ulangi Password";
+               this->labelPhone->Click += gcnew System::EventHandler(this, &MyForm::labelPhone_Click);
                // 
                // labelGender
                // 
@@ -213,47 +166,15 @@ namespace EventManagementSystem {
                this->txtEmail->Size = System::Drawing::Size(200, 20);
                this->txtEmail->TabIndex = 9;
                // 
-               // txtPassword
-               // 
-               this->txtPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(192)));
-               this->txtPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-               this->txtPassword->Location = System::Drawing::Point(130, 117);
-               this->txtPassword->Name = L"txtPassword";
-               this->txtPassword->Size = System::Drawing::Size(200, 20);
-               this->txtPassword->TabIndex = 10;
-               this->txtPassword->UseSystemPasswordChar = true;
-               // 
-               // txtUsername
-               // 
-               this->txtUsername->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(192)));
-               this->txtUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-               this->txtUsername->Location = System::Drawing::Point(447, 57);
-               this->txtUsername->Name = L"txtUsername";
-               this->txtUsername->Size = System::Drawing::Size(200, 20);
-               this->txtUsername->TabIndex = 11;
-               // 
                // txtPhone
                // 
                this->txtPhone->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
                    static_cast<System::Int32>(static_cast<System::Byte>(192)));
                this->txtPhone->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-               this->txtPhone->Location = System::Drawing::Point(447, 87);
+               this->txtPhone->Location = System::Drawing::Point(130, 117);
                this->txtPhone->Name = L"txtPhone";
                this->txtPhone->Size = System::Drawing::Size(200, 20);
                this->txtPhone->TabIndex = 12;
-               // 
-               // txtConfirmPassword
-               // 
-               this->txtConfirmPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
-               this->txtConfirmPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-               this->txtConfirmPassword->Location = System::Drawing::Point(447, 117);
-               this->txtConfirmPassword->Name = L"txtConfirmPassword";
-               this->txtConfirmPassword->Size = System::Drawing::Size(200, 20);
-               this->txtConfirmPassword->TabIndex = 13;
-               this->txtConfirmPassword->UseSystemPasswordChar = true;
                // 
                // radioMale
                // 
@@ -333,20 +254,14 @@ namespace EventManagementSystem {
                this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
                this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
                this->BackColor = System::Drawing::Color::DarkRed;
-               this->ClientSize = System::Drawing::Size(684, 261);
+               this->ClientSize = System::Drawing::Size(416, 261);
                this->Controls->Add(this->btnRegister);
                this->Controls->Add(this->groupGender);
-               this->Controls->Add(this->txtConfirmPassword);
                this->Controls->Add(this->txtPhone);
-               this->Controls->Add(this->txtUsername);
-               this->Controls->Add(this->txtPassword);
                this->Controls->Add(this->txtEmail);
                this->Controls->Add(this->txtName);
                this->Controls->Add(this->labelGender);
-               this->Controls->Add(this->labelConfirmPassword);
                this->Controls->Add(this->labelPhone);
-               this->Controls->Add(this->labelUsername);
-               this->Controls->Add(this->labelPassword);
                this->Controls->Add(this->labelEmail);
                this->Controls->Add(this->labelName);
                this->Controls->Add(this->labelTitle);
@@ -415,14 +330,12 @@ namespace EventManagementSystem {
         {
             if (String::IsNullOrWhiteSpace(txtName->Text) || txtName->ForeColor == System::Drawing::Color::Gray ||
                 String::IsNullOrWhiteSpace(txtEmail->Text) || txtEmail->ForeColor == System::Drawing::Color::Gray ||
-                String::IsNullOrWhiteSpace(txtPassword->Text) || txtPassword->ForeColor == System::Drawing::Color::Gray ||
-                String::IsNullOrWhiteSpace(txtUsername->Text) || txtUsername->ForeColor == System::Drawing::Color::Gray ||
-                String::IsNullOrWhiteSpace(txtPhone->Text) || txtPhone->ForeColor == System::Drawing::Color::Gray ||
-                String::IsNullOrWhiteSpace(txtConfirmPassword->Text) || txtConfirmPassword->ForeColor == System::Drawing::Color::Gray)
+                String::IsNullOrWhiteSpace(txtPhone->Text) || txtPhone->ForeColor == System::Drawing::Color::Gray)
             {
                 MessageBox::Show(L"Harap masukkan data anda dengan lengkap", L"Peringatan", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                 return;
             }
+
 
             if (!txtEmail->Text->Contains("@"))
             {
@@ -437,15 +350,9 @@ namespace EventManagementSystem {
                 return;
             }
 
-            if (txtPassword->Text->Length < 8)
+            if (!radioMale->Checked && !radioFemale->Checked && !radioOther->Checked)
             {
-                MessageBox::Show(L"Password harus terdiri dari minimal 8 karakter", L"Peringatan", MessageBoxButtons::OK, MessageBoxIcon::Warning);
-                return;
-            }
-
-            if (txtPassword->Text != txtConfirmPassword->Text)
-            {
-                MessageBox::Show(L"Password dan konfirmasi password tidak sesuai", L"Peringatan", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                MessageBox::Show(L"Harap pilih jenis kelamin Anda", L"Peringatan", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                 return;
             }
 
@@ -455,5 +362,7 @@ namespace EventManagementSystem {
             this->Close();
 
         }
+    private: System::Void labelPhone_Click(System::Object^ sender, System::EventArgs^ e) {
+    }
     };
 }
