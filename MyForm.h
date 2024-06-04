@@ -81,7 +81,7 @@ namespace EventManagementSystem {
                this->groupGender->SuspendLayout();
                this->SuspendLayout();
                // 
-               // labelTitle
+               // JudulLabel
                // 
                this->labelTitle->AutoSize = true;
                this->labelTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -93,7 +93,7 @@ namespace EventManagementSystem {
                this->labelTitle->TabIndex = 0;
                this->labelTitle->Text = L"Form Registrasi Event";
                // 
-               // labelName
+               // NamaLabel
                // 
                this->labelName->AutoSize = true;
                this->labelName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -106,7 +106,7 @@ namespace EventManagementSystem {
                this->labelName->TabIndex = 1;
                this->labelName->Text = L"Nama Lengkap";
                // 
-               // labelEmail
+               // EmailLabel
                // 
                this->labelEmail->AutoSize = true;
                this->labelEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -119,7 +119,7 @@ namespace EventManagementSystem {
                this->labelEmail->TabIndex = 2;
                this->labelEmail->Text = L"Email";
                // 
-               // labelPhone
+               // TeleponLabel
                // 
                this->labelPhone->AutoSize = true;
                this->labelPhone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -133,7 +133,7 @@ namespace EventManagementSystem {
                this->labelPhone->Text = L"Nomor Telepon";
                this->labelPhone->Click += gcnew System::EventHandler(this, &MyForm::labelPhone_Click);
                // 
-               // labelGender
+               // JenisKelaminLabel
                // 
                this->labelGender->AutoSize = true;
                this->labelGender->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -146,7 +146,7 @@ namespace EventManagementSystem {
                this->labelGender->TabIndex = 7;
                this->labelGender->Text = L"Jenis Kelamin";
                // 
-               // txtName
+               // NamaTeks
                // 
                this->txtName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
                    static_cast<System::Int32>(static_cast<System::Byte>(192)));
@@ -156,7 +156,7 @@ namespace EventManagementSystem {
                this->txtName->Size = System::Drawing::Size(200, 20);
                this->txtName->TabIndex = 8;
                // 
-               // txtEmail
+               // EmailTeks
                // 
                this->txtEmail->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
                    static_cast<System::Int32>(static_cast<System::Byte>(192)));
@@ -166,7 +166,7 @@ namespace EventManagementSystem {
                this->txtEmail->Size = System::Drawing::Size(200, 20);
                this->txtEmail->TabIndex = 9;
                // 
-               // txtPhone
+               // NomorTeleponText
                // 
                this->txtPhone->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
                    static_cast<System::Int32>(static_cast<System::Byte>(192)));
@@ -176,7 +176,7 @@ namespace EventManagementSystem {
                this->txtPhone->Size = System::Drawing::Size(200, 20);
                this->txtPhone->TabIndex = 12;
                // 
-               // radioMale
+               // TombolJenisKelaminLaki-laki
                // 
                this->radioMale->AutoSize = true;
                this->radioMale->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -190,7 +190,7 @@ namespace EventManagementSystem {
                this->radioMale->UseVisualStyleBackColor = true;
                this->radioMale->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioGender_CheckedChanged);
                // 
-               // radioFemale
+               // TombolJenisKelaminPerempuan
                // 
                this->radioFemale->AutoSize = true;
                this->radioFemale->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -204,7 +204,7 @@ namespace EventManagementSystem {
                this->radioFemale->UseVisualStyleBackColor = true;
                this->radioFemale->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioGender_CheckedChanged);
                // 
-               // radioOther
+               // TombolJenisKelaminLainnya
                // 
                this->radioOther->AutoSize = true;
                this->radioOther->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -218,7 +218,7 @@ namespace EventManagementSystem {
                this->radioOther->UseVisualStyleBackColor = true;
                this->radioOther->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioGender_CheckedChanged);
                // 
-               // btnRegister
+               // TombolRegistrasi
                // 
                this->btnRegister->Location = System::Drawing::Point(130, 211);
                this->btnRegister->Name = L"btnRegister";
@@ -228,7 +228,7 @@ namespace EventManagementSystem {
                this->btnRegister->UseVisualStyleBackColor = true;
                this->btnRegister->Click += gcnew System::EventHandler(this, &MyForm::btnRegister_Click);
                // 
-               // groupGender
+               // JenisKelaminGroup
                // 
                this->groupGender->Controls->Add(this->radioMale);
                this->groupGender->Controls->Add(this->radioOther);
@@ -239,7 +239,7 @@ namespace EventManagementSystem {
                this->groupGender->TabIndex = 17;
                this->groupGender->TabStop = false;
                // 
-               // openSecondFormButton
+               // TombolMembukaSecondForm
                // 
                this->openSecondFormButton->Location = System::Drawing::Point(100, 100);
                this->openSecondFormButton->Name = L"openSecondFormButton";
@@ -276,8 +276,6 @@ namespace EventManagementSystem {
 #pragma endregion
 
     private: System::Void openSecondFormButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        SecondForm^ secondForm = gcnew SecondForm();
-        secondForm->ShowDialog();
     };
 
     private:
@@ -335,9 +333,24 @@ namespace EventManagementSystem {
                 MessageBox::Show(L"Harap masukkan data anda dengan lengkap", L"Peringatan", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                 return;
             }
+        
+            bool isLetterOnly = true;
+            for (int i = 0; i < txtName->Text->Length; i++)
+            {
+                if (!Char::IsLetter(txtName->Text[i]) && txtName->Text[i] != ' ')
+                {
+                    isLetterOnly = false;
+                    break;
+                }
+            }
 
+            if (!isLetterOnly)
+            {
+                MessageBox::Show(L"Name harus berupa huruf saja", L"Peringatan", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                return;
+            }
 
-            if (!txtEmail->Text->Contains("@"))
+            if (!txtEmail->Text->Contains("@gmail.com"))
             {
                 MessageBox::Show(L"Email tidak valid", L"Peringatan", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                 return;
@@ -356,13 +369,22 @@ namespace EventManagementSystem {
                 return;
             }
 
+            System::Windows::Forms::DialogResult result = MessageBox::Show(L"Apakah Anda yakin?", L"Konfirmasi", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+            if (result == System::Windows::Forms::DialogResult::No)
+            {
+                return;
+            }
+
+
             this->Hide();
+
             secondForm = gcnew SecondForm();
             secondForm->ShowDialog();
+
             this->Close();
 
         }
     private: System::Void labelPhone_Click(System::Object^ sender, System::EventArgs^ e) {
     }
-    };
+};
 }
