@@ -22,6 +22,7 @@ namespace EventManagementSystem {
             InitializeEventData();
             eventHistory = gcnew System::Collections::Generic::Stack<String^>();
             eventQueue = gcnew System::Collections::Generic::Queue<String^>();
+            eventsConfirmed = false;
 
             Button^ doneButton = gcnew Button();
             doneButton->Text = "DONE";
@@ -35,7 +36,6 @@ namespace EventManagementSystem {
             this->Controls->Add(doneButton);
         }
 
-        // Getter dan setter untuk techConferenceImagePath
         property String^ TechConferenceImagePath {
             String^ get() {
                 return techConferenceImagePath;
@@ -45,7 +45,6 @@ namespace EventManagementSystem {
             }
         }
 
-        // Getter dan setter untuk artWorkshopImagePath
         property String^ ArtWorkshopImagePath {
             String^ get() {
                 return artWorkshopImagePath;
@@ -55,7 +54,6 @@ namespace EventManagementSystem {
             }
         }
 
-        // Getter dan setter untuk musicFestivalImagePath
         property String^ MusicFestivalImagePath {
             String^ get() {
                 return musicFestivalImagePath;
@@ -75,6 +73,7 @@ namespace EventManagementSystem {
         }
 
     private:
+        bool eventsConfirmed;
         System::Collections::Generic::Stack<System::String^>^ eventHistory;
         System::Collections::Generic::Queue<System::String^>^ eventQueue;
 
@@ -124,7 +123,7 @@ namespace EventManagementSystem {
                this->panel1->SuspendLayout();
                this->SuspendLayout();
                // 
-               // titleLabel
+               // Judul Label
                // 
                this->titleLabel->AutoSize = true;
                this->titleLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
@@ -138,7 +137,7 @@ namespace EventManagementSystem {
                this->titleLabel->TabIndex = 0;
                this->titleLabel->Text = L"Event Selection";
                // 
-               // event1CheckBox
+               // CekBoxAcara1
                // 
                this->event1CheckBox->AutoSize = true;
                this->event1CheckBox->Font = (gcnew System::Drawing::Font(L"Tw Cen MT Condensed Extra Bold", 12, System::Drawing::FontStyle::Regular,
@@ -150,7 +149,7 @@ namespace EventManagementSystem {
                this->event1CheckBox->Text = L"Tech Conference";
                this->event1CheckBox->UseVisualStyleBackColor = true;
                // 
-               // event2CheckBox
+               // CekBoxAcara2
                // 
                this->event2CheckBox->AutoSize = true;
                this->event2CheckBox->Font = (gcnew System::Drawing::Font(L"Tw Cen MT Condensed Extra Bold", 12, System::Drawing::FontStyle::Regular,
@@ -162,7 +161,7 @@ namespace EventManagementSystem {
                this->event2CheckBox->Text = L"Music Festival";
                this->event2CheckBox->UseVisualStyleBackColor = true;
                // 
-               // event3CheckBox
+               // CekBoxAcara3
                // 
                this->event3CheckBox->AutoSize = true;
                this->event3CheckBox->Font = (gcnew System::Drawing::Font(L"Tw Cen MT Condensed Extra Bold", 12, System::Drawing::FontStyle::Regular,
@@ -174,7 +173,7 @@ namespace EventManagementSystem {
                this->event3CheckBox->Text = L"Art Workshop";
                this->event3CheckBox->UseVisualStyleBackColor = true;
                // 
-               // event1Details
+               // DetailAcara1
                // 
                this->event1Details->AutoSize = true;
                this->event1Details->Location = System::Drawing::Point(30, 100);
@@ -185,7 +184,7 @@ namespace EventManagementSystem {
                this->event1Details->Text = L"InnovateTech 2024: Shaping the Future\nDate: 2024-08-04\nDescription: Dapatkan pand"
                    L"angan terbaru tentang \ninovasi dan teknologi terkini di InnovateTech 2024. ";
                // 
-               // event2Details
+               // DetailAcara2
                // 
                this->event2Details->AutoSize = true;
                this->event2Details->Location = System::Drawing::Point(350, 100);
@@ -196,7 +195,7 @@ namespace EventManagementSystem {
                this->event2Details->Text = L"HarmonyFest 2024\r\nDate: 2024-07-19\r\nDescription: Festival musik tahunan yang meng"
                    L"ha-\rndirkan beragam penampilan artis internasional dan \r\nlokal.";
                // 
-               // event3Details
+               // DetailAcara3
                // 
                this->event3Details->AutoSize = true;
                this->event3Details->Location = System::Drawing::Point(670, 100);
@@ -208,7 +207,7 @@ namespace EventManagementSystem {
                    L"p seni interaktif yang \r\nmenginspirasi peserta untuk mengeksplorasi \r\nkreativita"
                    L"s mereka.";
                // 
-               // pictureBox1
+               // BoxGambar1
                // 
                this->pictureBox1->Image = Image::FromFile(techConferenceImagePath);
                this->pictureBox1->Location = System::Drawing::Point(30, 180);
@@ -218,7 +217,7 @@ namespace EventManagementSystem {
                this->pictureBox1->TabIndex = 7;
                this->pictureBox1->TabStop = false;
                // 
-               // pictureBox2
+               // BoxGambar2
                // 
                this->pictureBox2->Image = Image::FromFile(musicFestivalImagePath);
                this->pictureBox2->Location = System::Drawing::Point(350, 180);
@@ -228,7 +227,7 @@ namespace EventManagementSystem {
                this->pictureBox2->TabIndex = 8;
                this->pictureBox2->TabStop = false;
                // 
-               // pictureBox3
+               // BoxGambar3
                // 
                this->pictureBox3->Image = Image::FromFile(artWorkshopImagePath);
                this->pictureBox3->Location = System::Drawing::Point(670, 180);
@@ -238,7 +237,7 @@ namespace EventManagementSystem {
                this->pictureBox3->TabIndex = 9;
                this->pictureBox3->TabStop = false;
                // 
-               // confirmButton
+               // TombolKonfirmasi
                // 
                this->confirmButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
                    static_cast<System::Int32>(static_cast<System::Byte>(0)));
@@ -253,7 +252,7 @@ namespace EventManagementSystem {
                this->confirmButton->UseVisualStyleBackColor = false;
                this->confirmButton->Click += gcnew System::EventHandler(this, &SecondForm::confirmButton_Click);
                // 
-               // panel1
+               // Panel1
                // 
                this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
                    static_cast<System::Int32>(static_cast<System::Byte>(0)));
@@ -263,7 +262,7 @@ namespace EventManagementSystem {
                this->panel1->Size = System::Drawing::Size(935, 50);
                this->panel1->TabIndex = 11;
                // 
-               // historyButton
+               // TombolRiwayat
                // 
                this->historyButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
                    static_cast<System::Int32>(static_cast<System::Byte>(0)));
@@ -278,7 +277,7 @@ namespace EventManagementSystem {
                this->historyButton->UseVisualStyleBackColor = false;
                this->historyButton->Click += gcnew System::EventHandler(this, &SecondForm::ShowEventHistory);
                // 
-               // clearHistoryButton
+               // TombolMembersihkanRiwayat
                // 
                this->clearHistoryButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
                    static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
@@ -293,7 +292,7 @@ namespace EventManagementSystem {
                this->clearHistoryButton->UseVisualStyleBackColor = false;
                this->clearHistoryButton->Click += gcnew System::EventHandler(this, &SecondForm::ClearEventHistory);
                // 
-               // SecondForm
+               // Form ke 2
                // 
                this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
                this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -366,9 +365,9 @@ namespace EventManagementSystem {
         for (int i = 0; i < eventCheckBoxes->Length; i++)
         {
             if (eventCheckBoxes[i]->Checked) {
-                String^ eventDetails = "Event " + (i + 1) + ": " + eventData[i][0] + "\n"; // Event Name
-                eventDetails += "Date: " + eventData[i][1] + "\n"; // Event Date
-                eventDetails += "Description: " + eventData[i][2] + "\n\n"; // Event Description
+                String^ eventDetails = "Event " + (i + 1) + ": " + eventData[i][0] + "\n"; 
+                eventDetails += "Date: " + eventData[i][1] + "\n"; 
+                eventDetails += "Description: " + eventData[i][2] + "\n\n"; 
 
                 for each (String ^ registeredEvent in eventHistory) {
                     if (registeredEvent->Contains(eventData[i][0])) {
@@ -379,7 +378,7 @@ namespace EventManagementSystem {
 
                 if (eventAlreadyRegistered) {
                     MessageBox::Show("Event " + eventData[i][0] + " is already registered.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
-                    return; 
+                    return;
                 }
 
                 selectedEvents += eventDetails;
@@ -404,6 +403,7 @@ namespace EventManagementSystem {
                 }
 
                 MessageBox::Show(confirmationMessage, "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                eventsConfirmed = true;
             }
         }
     }
@@ -418,8 +418,11 @@ namespace EventManagementSystem {
             }
         }
 
-        if (!anyEventSelected) { 
+        if (!anyEventSelected) {
             MessageBox::Show("Please select at least one event.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+        }
+        else if (!eventsConfirmed) {
+            MessageBox::Show("Please confirm your selected events before proceeding.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
         }
         else {
             this->Close();
